@@ -33,8 +33,8 @@
             this.btnVer = new System.Windows.Forms.Button();
             this.cbxFilme = new System.Windows.Forms.ComboBox();
             this.mtbNome = new System.Windows.Forms.MaskedTextBox();
-            this.mtbDataNascimento = new System.Windows.Forms.MaskedTextBox();
             this.btnAssistirAgora = new System.Windows.Forms.Button();
+            this.dateTimePickerNascimento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,16 +88,6 @@
             this.mtbNome.TabIndex = 11;
             this.mtbNome.Text = "Seu nome";
             // 
-            // mtbDataNascimento
-            // 
-            this.mtbDataNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbDataNascimento.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.mtbDataNascimento.Location = new System.Drawing.Point(17, 436);
-            this.mtbDataNascimento.Name = "mtbDataNascimento";
-            this.mtbDataNascimento.Size = new System.Drawing.Size(295, 31);
-            this.mtbDataNascimento.TabIndex = 12;
-            this.mtbDataNascimento.Text = "Data de nascimento";
-            // 
             // btnAssistirAgora
             // 
             this.btnAssistirAgora.BackColor = System.Drawing.Color.DarkOrchid;
@@ -110,13 +100,21 @@
             this.btnAssistirAgora.Text = "Assistir agora!";
             this.btnAssistirAgora.UseVisualStyleBackColor = false;
             // 
+            // dateTimePickerNascimento
+            // 
+            this.dateTimePickerNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerNascimento.Location = new System.Drawing.Point(17, 434);
+            this.dateTimePickerNascimento.Name = "dateTimePickerNascimento";
+            this.dateTimePickerNascimento.Size = new System.Drawing.Size(383, 29);
+            this.dateTimePickerNascimento.TabIndex = 14;
+            // 
             // TelaAssistir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 554);
+            this.Controls.Add(this.dateTimePickerNascimento);
             this.Controls.Add(this.btnAssistirAgora);
-            this.Controls.Add(this.mtbDataNascimento);
             this.Controls.Add(this.mtbNome);
             this.Controls.Add(this.cbxFilme);
             this.Controls.Add(this.btnVer);
@@ -137,7 +135,7 @@
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.ComboBox cbxFilme;
         private System.Windows.Forms.MaskedTextBox mtbNome;
-        private System.Windows.Forms.MaskedTextBox mtbDataNascimento;
         private System.Windows.Forms.Button btnAssistirAgora;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
     }
 }
