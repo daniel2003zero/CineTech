@@ -32,9 +32,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnVer = new System.Windows.Forms.Button();
             this.cbxFilme = new System.Windows.Forms.ComboBox();
-            this.mtbNome = new System.Windows.Forms.MaskedTextBox();
             this.btnAssistirAgora = new System.Windows.Forms.Button();
-            this.dateTimePickerNascimento = new System.Windows.Forms.DateTimePicker();
+            this.mtxData = new System.Windows.Forms.MaskedTextBox();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,16 +78,6 @@
             this.cbxFilme.TabIndex = 10;
             this.cbxFilme.Text = "A volta dos que não foram";
             // 
-            // mtbNome
-            // 
-            this.mtbNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbNome.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.mtbNome.Location = new System.Drawing.Point(17, 371);
-            this.mtbNome.Name = "mtbNome";
-            this.mtbNome.Size = new System.Drawing.Size(130, 31);
-            this.mtbNome.TabIndex = 11;
-            this.mtbNome.Text = "Seu nome";
-            // 
             // btnAssistirAgora
             // 
             this.btnAssistirAgora.BackColor = System.Drawing.Color.DarkOrchid;
@@ -99,23 +89,35 @@
             this.btnAssistirAgora.TabIndex = 13;
             this.btnAssistirAgora.Text = "Assistir agora!";
             this.btnAssistirAgora.UseVisualStyleBackColor = false;
+            this.btnAssistirAgora.Click += new System.EventHandler(this.btnAssistirAgora_Click);
             // 
-            // dateTimePickerNascimento
+            // mtxData
             // 
-            this.dateTimePickerNascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerNascimento.Location = new System.Drawing.Point(17, 434);
-            this.dateTimePickerNascimento.Name = "dateTimePickerNascimento";
-            this.dateTimePickerNascimento.Size = new System.Drawing.Size(383, 29);
-            this.dateTimePickerNascimento.TabIndex = 14;
+            this.mtxData.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mtxData.Location = new System.Drawing.Point(17, 439);
+            this.mtxData.Mask = "00/00/0000";
+            this.mtxData.Name = "mtxData";
+            this.mtxData.Size = new System.Drawing.Size(245, 31);
+            this.mtxData.TabIndex = 15;
+            this.mtxData.ValidatingType = typeof(System.DateTime);
+            this.mtxData.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mtxData_MaskInputRejected);
+            // 
+            // textBoxNome
+            // 
+            this.textBoxNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNome.Location = new System.Drawing.Point(17, 384);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(100, 31);
+            this.textBoxNome.TabIndex = 16;
             // 
             // TelaAssistir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 554);
-            this.Controls.Add(this.dateTimePickerNascimento);
+            this.Controls.Add(this.textBoxNome);
+            this.Controls.Add(this.mtxData);
             this.Controls.Add(this.btnAssistirAgora);
-            this.Controls.Add(this.mtbNome);
             this.Controls.Add(this.cbxFilme);
             this.Controls.Add(this.btnVer);
             this.Controls.Add(this.pictureBox1);
@@ -134,8 +136,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnVer;
         private System.Windows.Forms.ComboBox cbxFilme;
-        private System.Windows.Forms.MaskedTextBox mtbNome;
         private System.Windows.Forms.Button btnAssistirAgora;
-        private System.Windows.Forms.DateTimePicker dateTimePickerNascimento;
+        private System.Windows.Forms.MaskedTextBox mtxData;
+        private System.Windows.Forms.TextBox textBoxNome;
     }
 }

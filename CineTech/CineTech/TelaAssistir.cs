@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CineTech
 {
@@ -16,7 +18,7 @@ namespace CineTech
         {
             InitializeComponent();
         }
-        private void Form1_Load(object sender, EventArgs e)
+        private void TelaAssistir(object sender, EventArgs e)
         {
             // Lista de filmes
             List<string> filmes = new List<string>
@@ -49,9 +51,16 @@ namespace CineTech
             }
         }
 
-        private void dateTimePickerNascimento_Leave(object sender, EventArgs e)
+        private void mtxData_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            DateTime dataNascimento = dateTimePickerNascimento.Value;
+            DateTime dataNascimento;
+            if (!DateTime.TryParseExact(mtxData.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dataNascimento))
+            {
+                MessageBox.Show("Por favor, insira uma data de nascimento válida no formato dd/MM/yyyy.", "Data de Nascimento Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mtxData.Focus();
+                return;
+            }
+
             DateTime dataAtual = DateTime.Now;
 
             int idade = dataAtual.Year - dataNascimento.Year;
@@ -63,8 +72,39 @@ namespace CineTech
             if (idade < 1)
             {
                 MessageBox.Show("A data de nascimento deve indicar que o usuário tem pelo menos 1 ano de idade.", "Data de Nascimento Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dateTimePickerNascimento.Focus();
+                mtxData.Focus();
             }
         }
+
+        private void btnAssistirAgora_Click(object sender, EventArgs e)
+        {
+
+            MessageBox.Show("Por favor, insira uma data de nascimento válida no formato dd/MM/yyyy.", "Data de Nascimento Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            mtxData.Focus();
+            return;
+        }
+
+        DateTime dataAtual = DateTime.Now;
+
+            int idade = dataAtual.Year - dataNascimento.Year;
+            if (dataNascimento > dataAtual.AddYears(-idade))
+            {
+                Image--;
+            }
+
+            if (idade< 1)
+            {
+                MessageBox.Show("A data de nascimento deve indicar que o usuário tem pelo menos 1 ano de idade.", "Data de Nascimento Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mtxData.Focus();
+                return;
+            }
+
+                // Se todos os campos são válidos, prossiga com a lógica do seu sistema
+            MessageBox.Show($"Nome: {textBoxNome.Text}\nData de Nascimento: {mtxData.Text}", "Informações Validadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+        }
     }
+
 }
+
